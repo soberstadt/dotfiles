@@ -1,0 +1,28 @@
+alias ..='cd ..'
+
+# git commands
+alias gs="git status"
+alias gc="git commit -a -v"
+alias gb="git branch"
+alias gba="git branch -a"
+alias gd="git diff"
+alias gl="git pull; git submodule update"
+alias gp="git push"
+alias gph="git push heroku master"
+alias go="git checkout"
+alias ga="git add --all ."
+alias gw='git whatchanged -p --abbrev-commit --pretty=medium'
+alias gitk="gitk --all &"
+
+# alias git="hub"
+function git(){hub $@}
+
+function gitshout() {
+  git commit -m "$1"
+  git push -u
+}
+
+alias b="bundle"
+alias bi="b install --path vendor --without=production"
+alias bu="b update"
+alias be="b exec"

@@ -3,18 +3,42 @@
 	email = <%= print("Your Email: "); STDOUT.flush; STDIN.gets.chomp %>
 [alias]
 	co = checkout
+	tree = log --graph --full-history --all --color --pretty=tformat:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s%x20%x1b[33m(%an)%x1b[0m"
 [color]
 	diff = auto
 	status = auto
 	branch = auto
 [core]
 	excludesfile = <%= ENV['HOME'] %>/.gitignore
-	editor = mate -w
+	editor = vim
 	autocrlf = input
+        pager = diff-so-fancy | less --tabs=4 -RFX
 [apply]
 	whitespace = nowarn
 [format]
 	pretty = %C(yellow)%h%Creset %s %C(red)(%an, %cr)%Creset
 [github]
 	user = <%= print("GitHub Username: "); STDOUT.flush; STDIN.gets.chomp %>
-	token = <%= print("GitHub API Token: "); STDOUT.flush; STDIN.gets.chomp %>
+[credential]
+	helper = osxkeychain
+[diff "blackbox"]
+	textconv = gpg --use-agent -q --batch --decrypt
+[push]
+        default = current
+[merge]
+	tool = opendiff
+[filter "remove-trailing-whitespace"]
+	clean = sed -E 's/[[:space:]]*$//'
+	smudge = cat
+[diff]
+	compactionHeuristic = true
+[color]
+	ui = always
+[color "diff"]
+        meta = yellow bold
+        commit = green bold
+[color "diff-highlight"]
+        oldNormal = red bold
+        oldHighlight = red bold 52
+        newNormal = green bold
+        newHighlight = green bold 22
