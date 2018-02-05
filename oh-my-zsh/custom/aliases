@@ -26,3 +26,6 @@ alias b="bundle"
 alias bi="b install --path vendor --without=production"
 alias bu="b update"
 alias be="b exec"
+
+alias yolo='git commit -m "$(curl -s whatthecommit.com/index.txt)"'
+
