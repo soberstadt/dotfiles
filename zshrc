@@ -95,3 +95,6 @@ export PGDATA='/usr/local/var/postgres-spencer'
 
 # for Homebrew installed rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+fortune | randomsay | lolcat
+
