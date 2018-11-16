@@ -62,6 +62,7 @@ BUNDLED_COMMANDS=(rubocop)
 plugins=(
   git osx bundler ruby rails gpg-agent zsh-completions zsh-syntax-highlighting aws
 )
+ZSH_DISABLE_COMPFIX=true
 autoload -U compinit && compinit -u
 
 source $ZSH/oh-my-zsh.sh
@@ -73,7 +74,12 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-export EDITOR='vim'
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -92,9 +98,10 @@ export EDITOR='vim'
 source $ZSH_CUSTOM/aliases
 
 export PGDATA='/usr/local/var/postgres-spencer'
+export EDITOR='vim'
 
-# for Homebrew installed rbenv
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 fortune | randomsay | lolcat
 
+eval "$(rbenv init -)"
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
