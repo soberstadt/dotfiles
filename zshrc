@@ -60,7 +60,7 @@ COMPLETION_WAITING_DOTS="true"
 # Add wisely, as too many plugins slow down shell startup.
 BUNDLED_COMMANDS=(rubocop)
 plugins=(
-  git osx bundler ruby rails gpg-agent zsh-completions zsh-syntax-highlighting aws
+  git osx bundler ruby rails gpg-agent zsh-completions zsh-syntax-highlighting asdf
 )
 ZSH_DISABLE_COMPFIX=true
 autoload -U compinit && compinit -u
@@ -102,4 +102,7 @@ export EDITOR='vim'
 
 fortune | randomsay | lolcat
 
+export PATH="$HOME/.fastlane/bin:$PATH"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export AWS_HOME="$HOME/.aws"
+
