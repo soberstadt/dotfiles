@@ -31,3 +31,7 @@ alias yolo='git commit -m "$(curl -s whatthecommit.com/index.txt)"'
 
 alias y='youtube-dl --output "~/Desktop/%(title)s-%(id)s.%(ext)s"'
 alias youtube-dl='youtube-dl --format="[width<=?1920]" --no-mtime --restrict-filenames'
+
+alias mpdx_prod='prod_console --docker-args="-e DEV_USER_ID=a5a5b1a9-f373-47c7-80e5-52665c574f2d -e DEV_ACCOUNT_LIST_ID=87dcf0c9-3152-413f-ba7a-f98174c502b4 -e DATADOG_TRACE=false"'
+alias mpdx_stage='stage_console --docker-args="-e DEV_USER_ID=a5a5b1a9-f373-47c7-80e5-52665c574f2d -e DEV_ACCOUNT_LIST_ID=87dcf0c9-3152-413f-ba7a-f98174c502b4 -e DATADOG_TRACE=false"'
+
