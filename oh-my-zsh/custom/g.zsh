@@ -1,6 +1,8 @@
+unalias g
+
 # No arguments: `git status`
 # With arguments: acts like `git`
-# Credit: Thoughtbot 
+# Credit: Thoughtbot
 # (https://github.com/thoughtbot/dotfiles/blob/master/zsh/functions/g)
 g() {
   if [[ $# -gt 0 ]]; then
