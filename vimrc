@@ -1,11 +1,37 @@
-" based on http://github.com/jferris/config_files/blob/master/vimrc
-
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+inoremap jk <ESC>
+
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+
+packadd matchit
+
+" yank to clipboard
+if has("clipboard")
+  set clipboard=unnamed " copy to the system clipboard
+
+  if has("unnamedplus") " X11 support
+    set clipboard+=unnamedplus
+  endif
+endif
+
+" plugins:
+call plug#begin('~/.vim/plugged')
+
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
+
+call plug#end()
+
+" the rest of this file is based on http://github.com/jferris/config_files/blob/master/vimrc
+
 " allow backspacing over everything in insert mode
-set backspace=indent,eol,start
+" set backspace=indent,eol,start
 
 set nobackup
 set nowritebackup
@@ -88,10 +114,10 @@ set expandtab
 set laststatus=2
 
 " \ is the leader character
-let mapleader = ","
+let mapleader = " "
 
 " Edit the README_FOR_APP (makes :R commands work)
-map <Leader>R :e doc/README_FOR_APP<CR>
+" map <Leader>R :e doc/README_FOR_APP<CR>
 
 " Leader shortcuts for Rails commands
 map <Leader>m :Rmodel 
@@ -133,11 +159,8 @@ vmap D y'>p
 " overwriting the default register
 vmap P p :call setreg('"', getreg('0')) <CR>
 
-" For Haml
-au! BufRead,BufNewFile *.haml         setfiletype haml
-
 " No Help, please
-nmap <F1> <Esc>
+" nmap <F1> <Esc>
 
 " Press ^F from insert mode to insert the current file name
 imap <C-F> <C-R>=expand("%")<CR>
