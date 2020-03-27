@@ -58,7 +58,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-BUNDLED_COMMANDS=(rubocop)
+BUNDLED_COMMANDS=(rubocop standardrb)
 plugins=(
   git osx bundler ruby rails gpg-agent zsh-completions zsh-syntax-highlighting asdf
 )
@@ -129,3 +129,16 @@ bindkey -s "^[Om" "-"
 bindkey -s "^[Oj" "*"
 bindkey -s "^[Oo" "/"
 
+# fzf config
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+export FZF_TMUX=1
+
+# pulled from https://github.com/junegunn/fzf#settings
+_fzf_compgen_path() {
+  # fd --hidden --follow --exclude ".git" . "$1"
+  ag --hidden --ignore .git -g "" "$1"
+}
+
+# added by travis gem
+[ -f /Users/spenceroberstadt/.travis/travis.sh ] && source /Users/spenceroberstadt/.travis/travis.sh

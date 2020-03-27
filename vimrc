@@ -26,6 +26,9 @@ call plug#begin('~/.vim/plugged')
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
+
 call plug#end()
 
 " the rest of this file is based on http://github.com/jferris/config_files/blob/master/vimrc
