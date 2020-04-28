@@ -7,10 +7,16 @@ docker-ssh() {
     # if so, use the first arg as the container id
     id=$1
   else
-    # otherwise, check if there is exactly one container running
-    if [[ $(docker ps | wc -l) -ne 2 ]]; then
-      # if there is not, exit because we don't know which to use
-      echo "There is not only one docker container running. Please specify one."
+    # check if there are containers running
+    if [[ $(docker ps | wc -l) -eq 1 ]]; then
+      # if there is not, exit
+      echo "There are no docker containers running. You should start one."
+      return 1
+    fi
+    # check if there is more than one container running
+    if [[ $(docker ps | wc -l) -gt 2 ]]; then
+      # if there is, exit because we don't know which to use
+      echo "There is more than one docker container running. Please specify one."
       return 1
     fi
     # grab the first container id
