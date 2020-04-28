@@ -24,5 +24,10 @@ docker-ssh() {
   fi
 
   # run bash in the container
-  docker exec -it "$id" /bin/bash
+  shell="/bin/sh"
+  has_bash=$(docker exec -it "$id" ls /bin/bash)
+  if [[ has_bash == "/bin/bash" ]]; then
+    shell="/bin/bash"
+  fi
+  docker exec -it "$id" "$shell"
 }
