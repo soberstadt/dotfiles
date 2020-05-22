@@ -28,8 +28,15 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-dispatch'
+
+Plug 'thoughtbot/vim-rspec'
 
 call plug#end()
+
+" FZF bindings
+nnoremap <C-P> :Files<cr>
 
 " the rest of this file is based on http://github.com/jferris/config_files/blob/master/vimrc
 
@@ -230,4 +237,17 @@ function! OpenURL()
   endif
 endfunction
 map <Leader>w :call OpenURL()<CR>
+
+
+"
+" Me again!
+"
+
+" RSpec.vim mappings
+" https://github.com/thoughtbot/vim-rspec
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
+let g:rspec_command = "Dispatch bin/rspec {spec}"
 
