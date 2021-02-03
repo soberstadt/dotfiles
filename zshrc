@@ -60,7 +60,10 @@ COMPLETION_WAITING_DOTS="true"
 # Add wisely, as too many plugins slow down shell startup.
 BUNDLED_COMMANDS=(rubocop standardrb)
 plugins=(
-  git osx bundler ruby rails gpg-agent zsh-completions zsh-syntax-highlighting asdf
+  git osx asdf docker
+  bundler ruby rails
+  gpg-agent
+  autojump zsh-autosuggestions zsh-completions zsh-syntax-highlighting
 )
 ZSH_DISABLE_COMPFIX=true
 autoload -U compinit && compinit -u
@@ -95,7 +98,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-source $ZSH_CUSTOM/aliases
 
 export EDITOR='vim'
 
