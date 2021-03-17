@@ -37,6 +37,6 @@ alias mpdx_prod='prod-console --docker-args="-e DEV_USER_ID=a5a5b1a9-f373-47c7-8
 alias mpdx_stage='stage-console --docker-args="-e DEV_USER_ID=a5a5b1a9-f373-47c7-80e5-52665c574f2d -e DEV_ACCOUNT_LIST_ID=87dcf0c9-3152-413f-ba7a-f98174c502b4 -e DATADOG_TRACE=false"'
 
 alias split-vim='tmux split-window vim'
-alias keep-trying="echo 'while !!; do :; done' | pbcopy && echo 'copied command to clipboard!'"
+alias keep-trying="local last=\"$(history -n | tail -n 1)\"; while eval ${last}; do :; done"
 alias rubocop_diff="git diff --name-only master | xargs ls -1 2>/dev/null | grep '\.rb$' | grep -v 'db/schema.rb' | xargs bin/rubocop -a"
 
