@@ -1,4 +1,3 @@
 bundler
 pry
 rest-client
-aws-sdk ~>2.10
